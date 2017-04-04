@@ -1,0 +1,45 @@
+[user]
+	name = Chris Lawlor
+	email = lawlor.chris@gmail.com
+[alias]
+	out = log @{u}
+	in = "!git remote update -p; git log ..@{u}"
+	changes = diff --name-status -r
+	diffstat = diff --stat -r
+	serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=rfc
+	lga = log --graph --all --decorate
+        who = shortlog -s --
+	unstage = reset HEAD
+        files = diff-tree --no-commit-id --name-only -r
+	last = log -1 HEAD
+[core]
+	editor = nano
+	excludesfile = /Users/stylecaster/.gitignore_global
+[color]
+	ui = true
+[rebase]
+	autosquash = true
+
+
+[push]
+	default = simple
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[merge]
+	tool = kdiff3
+[mergetool "kdiff3"]
+	path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
