@@ -1,0 +1,16 @@
+alias pmp='python manage.py'
+alias dap='django-admin.py'
+alias ffs='sudo `fc -n -l -1`'
+alias rs='python manage.py runserver'
+alias syncdb='python manage.py syncdb'
+alias refine='xattr -rd com.apple.quarantine "/Applications/Google Refine.app" && open "/Applications/Google Refine.app"'
+
+alias mysqlstart='sudo /usr/local/mysql/support-files/mysql.server start'
+alias mysqlstop='sudo /usr/local/mysql/support-files/mysql.server stop'
+alias la='ls -la'
+alias mirror='wget --recursive --page-requisites --html-extension --convert-links --restrict-file-names=windows --no-parent'
+alias docker-shiva='docker stop $(docker ps -aq) && docker rm $(docker ps -a -q) && docker volume rm $(docker volume ls -qf dangling=true)'
+alias docker-stopall='docker stop $(docker ps -aq)'
+alias ports='lsof -i -P|grep -i "listen"'
+alias prune_local='git branch --merged | egrep -v "(^\*|master|`git rev-parse --abbrev-ref HEAD`)" | xargs git branch -d'
+
